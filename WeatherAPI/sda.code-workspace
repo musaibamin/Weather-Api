@@ -1,0 +1,9 @@
+{
+	"folders": [
+		{
+			"uri": "vscode-remote://ssh-remote+10.208.67.11/media/toor/sda"
+		}
+	],
+	"remoteAuthority": "ssh-remote+10.208.67.11",
+	"settings": {}
+}

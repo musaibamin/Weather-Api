@@ -1,0 +1,21 @@
+let html = '<h2>Applications</h2>';
+                    html += '<ul>';
+                    applications.forEach(application => {
+                        html += '<li>' + application.name + ' <button onclick="deleteApplication(' + application.id + ')">Delete</button></li>';
+                    });
+                    html += '</ul>';
+
+
+  function loadDashboard() {
+
+            fetch('/applications')
+                .then(response => response.json())
+                .then(applications => {
+
+                    applications.forEach(application => {
+                        html += '<li>' + application.name + ' <button onclick="deleteApplication(' + application.id + ')">Delete</button></li>';
+                    });
+
+                })
+                .catch(error => console.error('Error:', error));
+        }

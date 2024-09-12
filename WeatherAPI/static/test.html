@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+    <script>
+ let api_data = [];
+
+    async function getAPI () {
+        const url = 'http://127.0.0.1:5000/applications';
+        const token = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxODRkY2ZhMzdmMTFmZWNmNDZlZDk4YzA2YWY1NzA0ZCIsInN1YiI6IjY0OWJlODA1YzM5MjY2MDEwNjBiMmI3OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wq--WZ_95Vu4RmpKaJ-QV-kc3xaOR9DDilzyanFZ0Tc'
+
+        const data = await fetch(url, {
+            headers: { Authorization: `${token}` }
+        });
+        const results = await data.json();
+        return results.results;
+    }
+
+    async function fetchData() {
+        const API = await getAPI();
+        api_data = API;
+        return api_data;
+    }
+
+    fetchData().then(api_data=> {
+        api_data.forEach(content => {
+            const contentTitle = content.id;
+            console.info(
+                'TITLE:', contentTitle,',',
+            );
+        })
+    });
+
+
+    </script>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>

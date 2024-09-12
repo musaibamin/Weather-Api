@@ -1,0 +1,48 @@
+EMAIL: ^\w+@\w+(\.\w+)+$
+
+applicationID: ^[a-zA-Z0-9]+$
+
+
+
+from flask import Flask, session
+
+app = Flask(__name__)
+app.secret_key = 'your_secret_key'
+Set Session Variables:
+Once the Flask application is initialized, you can set session variables using the session object.
+python
+Copy code
+from flask import session
+
+@app.route('/')
+def index():
+    session['username'] = 'example_user'
+    return 'Session variable set'
+
+@app.route('/get_session')
+def get_session():
+    username = session.get('username')
+    return f'Session variable username: {username}'
+In this example, accessing / will set the username session variable to 'example_user', and accessing /get_session will retrieve and display the value of the username session variable.
+Accessing Session Variables:
+You can access session variables using the session object, similar to accessing a dictionary.
+python
+Copy code
+username = session.get('username')
+Clearing Session Variables:
+To clear a session variable, you can use the pop() method.
+python
+Copy code
+session.pop('username', None)
+Removing Session Variables:
+To remove all session variables, you can use the clear() method.
+python
+Copy code
+session.clear()
+
+
+<!--        for (var i = 0; i < applications.length; i++) {-->
+<!--            var item = applications[i];-->
+<!--            console.log("Name: " + item.appID + ", Age: " + item.appName);-->
+<!--            // You can use the data here as needed-->
+<!--        }-->
